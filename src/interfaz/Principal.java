@@ -5,6 +5,8 @@
  */
 package interfaz;
 
+import clases.*;
+
 /**
  *
  * @author coste
@@ -16,6 +18,12 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+
+        cmdConvertir.setEnabled(false);
+        txtDenominador1.setEditable(true);
+        txtDenominador2.setEditable(true);
+        txtNumerador1.setEditable(true);
+        txtNumerador2.setEditable(true);
     }
 
     /**
@@ -28,24 +36,24 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        txtDenominador2 = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        txtNumerador1 = new javax.swing.JTextField();
+        txtDenominador4 = new javax.swing.JTextField();
+        txtDenominador3 = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        txtNumerador2 = new javax.swing.JTextField();
+        txtNumerador3 = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
+        cmbOperaciones = new javax.swing.JComboBox<>();
+        txtDenominador1 = new javax.swing.JTextField();
+        txtEntero = new javax.swing.JTextField();
+        txtNumerador4 = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        cmdLimpiar = new javax.swing.JButton();
+        cmdConvertir = new javax.swing.JButton();
+        cmdResolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Fraccionarios");
@@ -53,61 +61,96 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 50, -1));
+        txtDenominador2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtDenominador2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDenominador2KeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtDenominador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 50, -1));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 50, 10));
 
-        jTextField2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 50, -1));
+        txtNumerador1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtNumerador1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumerador1KeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtNumerador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 50, -1));
 
-        jTextField3.setEditable(false);
-        jTextField3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 50, -1));
+        txtDenominador4.setEditable(false);
+        txtDenominador4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jPanel1.add(txtDenominador4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 50, -1));
 
-        jTextField4.setEditable(false);
-        jTextField4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 50, -1));
+        txtDenominador3.setEditable(false);
+        txtDenominador3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jPanel1.add(txtDenominador3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 50, -1));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 50, 10));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jLabel1.setText("=");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, -1, -1));
 
-        jTextField5.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 50, -1));
+        txtNumerador2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtNumerador2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumerador2KeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtNumerador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 50, -1));
 
-        jTextField6.setEditable(false);
-        jTextField6.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 50, -1));
+        txtNumerador3.setEditable(false);
+        txtNumerador3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jPanel1.add(txtNumerador3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 50, -1));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 50, 10));
 
-        jComboBox1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Suma", "Resta", "Multiplicación", "División" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 60, -1));
+        cmbOperaciones.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        cmbOperaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Suma", "Resta", "Multiplicación", "División" }));
+        jPanel1.add(cmbOperaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 60, -1));
 
-        jTextField7.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 50, -1));
+        txtDenominador1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtDenominador1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDenominador1KeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtDenominador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 50, -1));
 
-        jTextField8.setEditable(false);
-        jTextField8.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 50, -1));
+        txtEntero.setEditable(false);
+        txtEntero.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jPanel1.add(txtEntero, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 50, -1));
 
-        jTextField9.setEditable(false);
-        jTextField9.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 50, -1));
+        txtNumerador4.setEditable(false);
+        txtNumerador4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jPanel1.add(txtNumerador4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 50, -1));
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 50, 10));
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jButton1.setText("Limpiar");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, -1));
+        cmdLimpiar.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        cmdLimpiar.setText("Limpiar");
+        cmdLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jButton2.setText("Convertir a mixto");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, -1));
+        cmdConvertir.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        cmdConvertir.setText("Convertir a mixto");
+        cmdConvertir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdConvertirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdConvertir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, -1));
 
-        jButton3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jButton3.setText("Resolver");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, -1));
+        cmdResolver.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        cmdResolver.setText("Resolver");
+        cmdResolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdResolverActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdResolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,6 +166,117 @@ public class Principal extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(353, 339));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmdResolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdResolverActionPerformed
+        // TODO add your handling code here:
+        int num1, den1, num2, den2, num3, den3;
+        Fraccionario f1, f2, f3 = null;
+        int op = cmbOperaciones.getSelectedIndex();
+
+        num1 = Integer.parseInt(txtNumerador1.getText());
+        num2 = Integer.parseInt(txtNumerador1.getText());
+        den1 = Integer.parseInt(txtDenominador1.getText());
+        den2 = Integer.parseInt(txtDenominador2.getText());
+
+        try {
+            f1 = new Fraccionario(num1, den1);
+            f2 = new Fraccionario(num2, den2);
+
+            switch (op) {
+                case 0:
+                    f3 = f1.Suma(f2);
+                    break;
+                case 1:
+                    f3 = f1.Resta(f2);
+                    break;
+                case 2:
+                    f3 = f1.Multiplicacion(f2);
+                    break;
+                case 3:
+                    f3 = f1.Divison(f2);
+                    break;
+            }
+        } catch (DenominadorCeroException ex) {
+            Helper.mensaje(null, "No puede digitar ceros en el denominador", "Error", 2);
+        }
+
+        txtNumerador3.setText("" + f3.getNumerador());
+        txtDenominador3.setText("" + f3.getDenominador());
+
+        cmdConvertir.setEnabled(true);
+        txtDenominador1.setEditable(false);
+        txtDenominador2.setEditable(false);
+        txtNumerador1.setEditable(false);
+        txtNumerador2.setEditable(false);
+    }//GEN-LAST:event_cmdResolverActionPerformed
+
+    private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
+        // TODO add your handling code here:
+        txtDenominador1.setText("");
+        txtNumerador2.setText("");
+        txtDenominador2.setText("");
+        txtNumerador1.setText("");
+        txtDenominador3.setText("");
+        txtNumerador3.setText("");
+        txtDenominador4.setText("");
+        txtNumerador4.setText("");
+        cmbOperaciones.setSelectedIndex(0);
+        txtNumerador1.requestFocusInWindow();
+        cmdConvertir.setEnabled(false);
+        txtDenominador1.setEditable(true);
+        txtDenominador2.setEditable(true);
+        txtNumerador1.setEditable(true);
+        txtNumerador2.setEditable(true);
+    }//GEN-LAST:event_cmdLimpiarActionPerformed
+
+    private void txtNumerador1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumerador1KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNumerador1KeyTyped
+
+    private void txtDenominador1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDenominador1KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtDenominador1KeyTyped
+
+    private void txtNumerador2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumerador2KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNumerador2KeyTyped
+
+    private void txtDenominador2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDenominador2KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtDenominador2KeyTyped
+
+    private void cmdConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdConvertirActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_cmdConvertirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,24 +314,24 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cmbOperaciones;
+    private javax.swing.JButton cmdConvertir;
+    private javax.swing.JButton cmdLimpiar;
+    private javax.swing.JButton cmdResolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField txtDenominador1;
+    private javax.swing.JTextField txtDenominador2;
+    private javax.swing.JTextField txtDenominador3;
+    private javax.swing.JTextField txtDenominador4;
+    private javax.swing.JTextField txtEntero;
+    private javax.swing.JTextField txtNumerador1;
+    private javax.swing.JTextField txtNumerador2;
+    private javax.swing.JTextField txtNumerador3;
+    private javax.swing.JTextField txtNumerador4;
     // End of variables declaration//GEN-END:variables
 }
