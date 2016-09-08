@@ -220,6 +220,7 @@ public class Principal extends javax.swing.JFrame {
         txtNumerador3.setText("");
         txtDenominador4.setText("");
         txtNumerador4.setText("");
+        txtEntero.setText("");
         cmbOperaciones.setSelectedIndex(0);
         txtNumerador1.requestFocusInWindow();
         cmdConvertir.setEnabled(false);
@@ -275,7 +276,23 @@ public class Principal extends javax.swing.JFrame {
 
     private void cmdConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdConvertirActionPerformed
         // TODO add your handling code here:
+        int mix = 1, den3, num3, den4, num4;
+        Fraccionario f4 = null;
+
+        num3 = Integer.parseInt(txtNumerador3.getText());
+        den3 = Integer.parseInt(txtDenominador3.getText());
         
+        if (num3 > den3){
+            mix = num3 / den3;
+            den4 = den3;
+            num4 = mix - 1;
+        } else {
+            Helper.mensaje(null, "No se puede resolver, el numerador debe ser mayor que el denominador", "Error", 2);
+        }
+        
+        txtEntero.setText("" + mix);
+        txtDenominador4.setText("" + f4.getDenominador());
+        txtNumerador4.setText("" + f4.getNumerador());
     }//GEN-LAST:event_cmdConvertirActionPerformed
 
     /**
