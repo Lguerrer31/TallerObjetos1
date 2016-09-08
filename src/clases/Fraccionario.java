@@ -23,10 +23,6 @@ public class Fraccionario {
         }   
     }
 
-    public Fraccionario(int mix, int num, int den) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public int getNumerador() {
         return numerador;
     }
@@ -46,7 +42,7 @@ public class Fraccionario {
     public Fraccionario Suma(Fraccionario f2) throws DenominadorCeroException{
         int num, den;
         Fraccionario f;
-        num = (f2.numerador * this.denominador) + (this.numerador * f2.denominador);
+        num = this.numerador * f2.denominador + f2.numerador * this.denominador;
         den = this.denominador * f2.denominador;
         f = new Fraccionario(num, den);
         return f;
@@ -79,13 +75,12 @@ public class Fraccionario {
         return f;
     }
     
-    public Fraccionario Mixto(Fraccionario f3){
-        int mix, num, den;
+    public Fraccionario Mixto(Fraccionario f3) throws DenominadorCeroException{
+        int num, den;
         Fraccionario f;
-        mix = f3.numerador / f3.denominador;
         den = f3.denominador;
-        num = mix - 1;
-        f = new Fraccionario(mix, num, den);
+        num = (f3.numerador % f3.denominador);
+        f = new Fraccionario(num, den);
         return f;
     }
     

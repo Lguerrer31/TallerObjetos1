@@ -24,6 +24,7 @@ public class Principal extends javax.swing.JFrame {
         txtDenominador2.setEditable(true);
         txtNumerador1.setEditable(true);
         txtNumerador2.setEditable(true);
+        txtNumerador1.requestFocusInWindow();
     }
 
     /**
@@ -174,7 +175,7 @@ public class Principal extends javax.swing.JFrame {
         int op = cmbOperaciones.getSelectedIndex();
 
         num1 = Integer.parseInt(txtNumerador1.getText());
-        num2 = Integer.parseInt(txtNumerador1.getText());
+        num2 = Integer.parseInt(txtNumerador2.getText());
         den1 = Integer.parseInt(txtDenominador1.getText());
         den2 = Integer.parseInt(txtDenominador2.getText());
 
@@ -276,23 +277,21 @@ public class Principal extends javax.swing.JFrame {
 
     private void cmdConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdConvertirActionPerformed
         // TODO add your handling code here:
-        int mix = 1, den3, num3, den4, num4;
-        Fraccionario f4 = null;
+        int mix = 1, den3, num3, den4, num4 = 1;
 
         num3 = Integer.parseInt(txtNumerador3.getText());
         den3 = Integer.parseInt(txtDenominador3.getText());
-        
-        if (num3 > den3){
+
+        if (num3 > den3) {
             mix = num3 / den3;
-            den4 = den3;
-            num4 = mix - 1;
+            num4 = (num3 % den3);
         } else {
             Helper.mensaje(null, "No se puede resolver, el numerador debe ser mayor que el denominador", "Error", 2);
         }
-        
+
         txtEntero.setText("" + mix);
-        txtDenominador4.setText("" + f4.getDenominador());
-        txtNumerador4.setText("" + f4.getNumerador());
+        txtNumerador4.setText("" + num4);
+        txtDenominador4.setText(txtDenominador3.getText());
     }//GEN-LAST:event_cmdConvertirActionPerformed
 
     /**
