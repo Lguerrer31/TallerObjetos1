@@ -173,6 +173,20 @@ public class Principal extends javax.swing.JFrame {
         int num1, den1, num2, den2, num3, den3;
         Fraccionario f1, f2, f3 = null;
         int op = cmbOperaciones.getSelectedIndex();
+        
+        if (txtNumerador1.getText().trim().isEmpty()){
+            Helper.mensaje(null, "Por favor digite los datos correctamente", "Error", 2);
+            txtNumerador1.requestFocusInWindow();
+        } else if (txtNumerador2.getText().trim().isEmpty()){
+            Helper.mensaje(null, "Por favor digite los datos correctamente", "Error", 2);
+            txtNumerador2.requestFocusInWindow();
+        } else if (txtDenominador1.getText().trim().isEmpty()){
+            Helper.mensaje(null, "Por favor digite los datos correctamente", "Error", 2);
+            txtDenominador1.requestFocusInWindow();
+        } else if (txtDenominador2.getText().trim().isEmpty()){
+            Helper.mensaje(null, "Por favor digite los datos correctamente", "Error", 2);
+            txtDenominador2.requestFocusInWindow();
+        } else {
 
         num1 = Integer.parseInt(txtNumerador1.getText());
         num2 = Integer.parseInt(txtNumerador2.getText());
@@ -209,6 +223,7 @@ public class Principal extends javax.swing.JFrame {
         txtDenominador2.setEditable(false);
         txtNumerador1.setEditable(false);
         txtNumerador2.setEditable(false);
+        }
     }//GEN-LAST:event_cmdResolverActionPerformed
 
     private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
