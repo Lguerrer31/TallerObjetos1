@@ -173,56 +173,56 @@ public class Principal extends javax.swing.JFrame {
         int num1, den1, num2, den2, num3, den3;
         Fraccionario f1, f2, f3 = null;
         int op = cmbOperaciones.getSelectedIndex();
-        
-        if (txtNumerador1.getText().trim().isEmpty()){
+
+        if (txtNumerador1.getText().trim().isEmpty()) {
             Helper.mensaje(null, "Por favor digite los datos correctamente", "Error", 2);
             txtNumerador1.requestFocusInWindow();
-        } else if (txtNumerador2.getText().trim().isEmpty()){
+        } else if (txtNumerador2.getText().trim().isEmpty()) {
             Helper.mensaje(null, "Por favor digite los datos correctamente", "Error", 2);
             txtNumerador2.requestFocusInWindow();
-        } else if (txtDenominador1.getText().trim().isEmpty()){
+        } else if (txtDenominador1.getText().trim().isEmpty()) {
             Helper.mensaje(null, "Por favor digite los datos correctamente", "Error", 2);
             txtDenominador1.requestFocusInWindow();
-        } else if (txtDenominador2.getText().trim().isEmpty()){
+        } else if (txtDenominador2.getText().trim().isEmpty()) {
             Helper.mensaje(null, "Por favor digite los datos correctamente", "Error", 2);
             txtDenominador2.requestFocusInWindow();
         } else {
 
-        num1 = Integer.parseInt(txtNumerador1.getText());
-        num2 = Integer.parseInt(txtNumerador2.getText());
-        den1 = Integer.parseInt(txtDenominador1.getText());
-        den2 = Integer.parseInt(txtDenominador2.getText());
+            num1 = Integer.parseInt(txtNumerador1.getText());
+            num2 = Integer.parseInt(txtNumerador2.getText());
+            den1 = Integer.parseInt(txtDenominador1.getText());
+            den2 = Integer.parseInt(txtDenominador2.getText());
 
-        try {
-            f1 = new Fraccionario(num1, den1);
-            f2 = new Fraccionario(num2, den2);
+            try {
+                f1 = new Fraccionario(num1, den1);
+                f2 = new Fraccionario(num2, den2);
 
-            switch (op) {
-                case 0:
-                    f3 = f1.Suma(f2);
-                    break;
-                case 1:
-                    f3 = f1.Resta(f2);
-                    break;
-                case 2:
-                    f3 = f1.Multiplicacion(f2);
-                    break;
-                case 3:
-                    f3 = f1.Divison(f2);
-                    break;
+                switch (op) {
+                    case 0:
+                        f3 = f1.Suma(f2);
+                        break;
+                    case 1:
+                        f3 = f1.Resta(f2);
+                        break;
+                    case 2:
+                        f3 = f1.Multiplicacion(f2);
+                        break;
+                    case 3:
+                        f3 = f1.Divison(f2);
+                        break;
+                }
+            } catch (DenominadorCeroException ex) {
+                Helper.mensaje(null, "No puede digitar ceros en el denominador", "Error", 2);
             }
-        } catch (DenominadorCeroException ex) {
-            Helper.mensaje(null, "No puede digitar ceros en el denominador", "Error", 2);
-        }
 
-        txtNumerador3.setText("" + f3.getNumerador());
-        txtDenominador3.setText("" + f3.getDenominador());
+            txtNumerador3.setText("" + f3.getNumerador());
+            txtDenominador3.setText("" + f3.getDenominador());
 
-        cmdConvertir.setEnabled(true);
-        txtDenominador1.setEditable(false);
-        txtDenominador2.setEditable(false);
-        txtNumerador1.setEditable(false);
-        txtNumerador2.setEditable(false);
+            cmdConvertir.setEnabled(true);
+            txtDenominador1.setEditable(false);
+            txtDenominador2.setEditable(false);
+            txtNumerador1.setEditable(false);
+            txtNumerador2.setEditable(false);
         }
     }//GEN-LAST:event_cmdResolverActionPerformed
 
@@ -300,13 +300,13 @@ public class Principal extends javax.swing.JFrame {
         if (num3 > den3) {
             mix = num3 / den3;
             num4 = (num3 % den3);
+            txtEntero.setText("" + mix);
+            txtNumerador4.setText("" + num4);
+            txtDenominador4.setText(txtDenominador3.getText());
         } else {
             Helper.mensaje(null, "No se puede resolver, el numerador debe ser mayor que el denominador", "Error", 2);
         }
 
-        txtEntero.setText("" + mix);
-        txtNumerador4.setText("" + num4);
-        txtDenominador4.setText(txtDenominador3.getText());
     }//GEN-LAST:event_cmdConvertirActionPerformed
 
     /**
